@@ -1,9 +1,9 @@
 
 let socket = io.connect(); 
 
-socket.on('mensajes', function(msjs) { 
-    console.log(msjs);
-    //document.querySelector('p').innerHTML = msjs.map( msj => `SocketId: ${msj.socketid} -> Mensaje: ${msj.mensaje}`).join('<br>')
+socket.on('productos', function(productos) { 
+    console.log(productos);
+    //document.querySelector('p').innerHTML = db.map( prd => `SocketId: ${prd.socketid} -> Mensaje: ${prd.mensaje}`).join('<br>')
 });
 
 //const input = document.querySelector('input')
