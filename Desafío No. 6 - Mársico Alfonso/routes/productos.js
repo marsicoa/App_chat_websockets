@@ -5,8 +5,8 @@ const Contenedor = require('../public/javascripts/Contenedor.js')
 const router = express.Router()
 const productos = new Contenedor('./public/txt/productos.txt')
 
-router.get('/', (req, res) => {
-    res.render('pages/index')
+router.get('/', async (req, res) => {
+    res.render('pages/index', {productos: await productos.getAll()})
 })
 
 router.post('/productos', async (req, res) => {
@@ -15,8 +15,7 @@ router.post('/productos', async (req, res) => {
 })
 
 router.get('/productos', async (req, res) =>{
-    const db = await productos.getAll()
-    res.render('pages/listado', {productos: db})
+    res.render('pages/listado', {productos: await productos.getAll()})
 })
 
 module.exports = router
